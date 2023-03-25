@@ -24,6 +24,11 @@ h1{
     padding:  0 50px;
 }
 
+@media only screen and (max-width: 989px) {
+    .container .content{
+        padding:  0 7.5vw;
+    }
+}
 
 /* secciones */
 
@@ -374,10 +379,6 @@ input {
 
 @media only screen and (max-width: 989px) {
     
-    .content {
-        padding: 0 7.5vw;
-    }
-
     .contact-form td {
         display: block;
         margin-bottom: 25px;
