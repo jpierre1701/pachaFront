@@ -11,7 +11,39 @@ h1{
     margin-bottom: 30px;
 }
 
+.avia-section{
+    padding: 50px 0;
+} 
+
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container .content{
+    padding:  0 50px;
+}
+
+
 /* secciones */
+
+.section-bio{
+    background: #7299FE;
+}
+.section-skills{
+    background: #9122FF;
+}
+
+.section-portafolio{
+    background: #FFD233;
+}
+
+.section-clientes{
+    background: #3F4E62;
+}
+
+
+/* Seccion Cabecera */
 
 .section-cabecera{
     position: relative;
@@ -33,35 +65,6 @@ h1{
     z-index: -1;
 }
 
-.section-bio{
-    background: #7299FE;
-}
-.section-skills{
-    background: #9122FF;
-}
-
-.section-portafolio{
-    background: #FFD233;
-}
-
-.section-clientes{
-    background: #3F4E62;
-}
-
-.section-contacto{
-    background: #1687A0;
-}
-
-.container{
-    max-width: 1310px;
-    margin: 0 auto;
-    padding: 0 50px;
-}
-
-.container .content{
-    padding: 50px 0
-}
-
 .section-cabecera .container{
     height: 100%;
 }
@@ -69,19 +72,6 @@ h1{
 .section-cabecera .container .content{
     height: 100%;
 }
-
-.section-portafolio .container{
-    max-width: 970px;
-}
-
-
-.section-contacto .container{
-    max-width: 859px;
-}
-
-
-
-/* Style */
 
 .cabecera{
     height: 100%;
@@ -113,9 +103,9 @@ h1{
     padding: 20px;  
 }
 
-.biografia{
-   
-}
+
+/* Seccion Biografia */
+
 .biografia .titulo-bio{
     font-family: 'Arial';
     font-style: normal;
@@ -149,9 +139,8 @@ h1{
     display: inline-block;
 }
 
-.skills{
-  
-}
+
+/* Seccion Skills */
 
 .skills .titulo-skill{
     font-family: 'Arial';
@@ -163,7 +152,6 @@ h1{
     text-align: center;
 }
 
-
 .barras-cursos{
     display: flex;
     flex-wrap: wrap;
@@ -173,11 +161,9 @@ h1{
     width: 50%;
 }
 
-
 .barras-column-1 .barra {
     margin-right: 35px ;
 }
-
 
 .barras-cursos .barra:not(:last-child) {
     margin-bottom: 35px ;
@@ -197,8 +183,9 @@ h1{
     height: 20px;
 }
 
+/* seccion Portafolio */
 
-.portafolio .title h1{
+.section-title-wrapper .titulo-portafolio{
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
@@ -206,39 +193,73 @@ h1{
     line-height: 41px;
     color: #00AD84;
     text-align: center;
+    margin-bottom: 30px;
 }
 
-
-.portafolio .grid-image{
+.portfolio-wrapper{
     display: flex;
     flex-wrap: wrap;
+    margin-left: -0.35rem;
+    margin-right: -0.35rem;
 }
 
-.portafolio .grid-image .image{
-    width: 25%;  
+.portfolio-wrapper .portfolio-item{
+    --portfolioItemSize: 50%;
+    width: var(--portfolioItemSize);
+    aspect-ratio: 140 / 92;
+    position: relative;
+    padding: 0.35rem;
+}
+
+.portfolio-wrapper .portfolio-item .portfolio-item-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-wrapper .portfolio-item span{
+    position: absolute;
+    z-index: 1;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity ease 0.25s, width ease 0.25s, height ease 0.25s;
+}
+
+.portfolio-wrapper .portfolio-item img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.portfolio-wrapper .portfolio-item:hover span{
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    color: white;
 }
 
 
-@media only screen and (max-width: 989px) {
-    .portafolio .grid-image .image{
-        width: 100%; 
-        text-align: center;
-        margin-bottom: 25px; 
+@media only screen and (min-width: 768px) {
+
+    .portfolio-wrapper .portfolio-item {
+        --portfolioItemSize: 25%;
     }
 }
 
-@media only screen and (max-width: 989px) {
-    .portafolio .grid-image{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-    } 
-}
 
-
-
+/* Seccion Clientes */
 
 .clientes .title h1{
     font-family: 'Arial';
@@ -274,70 +295,98 @@ h1{
     }
 }
 
-.contacto .title h1{
+
+/* Formulario */
+
+.section-contacto {
+    background-color: #1687A0;
+}
+
+.contact-titulo {
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     line-height: 41px;
-    color: #FF1B1B; 
+    color: #FF1B1B;
     text-align: center;
 }
 
-.contacto .boton-enviar{
-    background: #233451;
+form{
+    text-align: center;
     font-family: 'Arial';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 21px;
-    color: #FFFFFF;
-    text-decoration: none;
-    width: 167px;
-    display: inline-block;
-    text-align: center;
-    padding: 15px 20px;
-    margin-top: 50px;
 }
 
-.tabla tr{
-    display: flex;
-    flex-wrap: wrap;  
-    margin-bottom: 45px;
-}
-
-.tabla td{ 
-    width: 363px;
-    display: block;
-}
-
-.tabla td:not(:last-child){ 
-   margin-right: 20px;
-}
-
-@media only screen and (max-width: 989px) {
-    .tabla td:not(:last-child){ 
-        margin-right: 0px;
-     }
-}
-
-@media only screen and (max-width: 989px) {
-    .tabla td{ 
-        width: 100%;
-        margin-bottom: 40px;
-    }
-}
-
-@media only screen and (max-width: 989px) {
-    .tabla tr{ 
-        margin-bottom: 15px;
-    }
-}
-
-.tabla th{ 
+.contact-form {
     width: 100%;
-    display: block;
-    margin-right: 10px;
-    height: 150px;
+    border-collapse: separate;
+    border-spacing: 30px 35px;
 }
 
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #BFBFBF;
+    font-size: 14px;
+    width: 100%;
+    font-family: 'Arial';
+}
+
+input[type="submit"] {
+    background: #233451;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+    transition: color ease-in-out 0.2s, border ease-in-out 0.2s, background-color ease-in-out 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #57EFF9;
+    color: #233451;
+    border: 1px solid #233451;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form td {
+    padding: 0;
+}
+
+input {
+    height: 59px;
+    width: 364px;
+}
+
+.text-area{
+    min-height: 112px;
+    padding: 15px;
+}
+.button{
+    width: 167px;
+    height: 56px;
+}
+
+@media only screen and (max-width: 989px) {
+    
+    .content {
+        padding: 0 7.5vw;
+    }
+
+    .contact-form td {
+        display: block;
+        margin-bottom: 25px;
+    }
+    .contact-form {
+        border-spacing: 15px 0px;
+    }
+
+    .contact-titulo {
+       margin-bottom: 35px;
+    }
+}
